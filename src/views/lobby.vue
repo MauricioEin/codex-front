@@ -13,9 +13,9 @@ export default {
   components: {
     blockList
   },
-  data(){
-    return{
-      blocks: [{title:1},{title:2},{title:3},{title:4},{title:5}]
+  data() {
+    return {
+      blocks: [{ _id: 1, title: 'Exercise #1' }, { _id: 2, title: 'Exercise #2' }, { _id: 3, title: 'Exercise #3' }, { _id: 4, title: 'Exercise #4' }, { _id: 5, title: 'Exercise #5' }]
     }
   }
 }
