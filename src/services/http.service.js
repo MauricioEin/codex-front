@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const BASE_URL =
-  process.env.NODE_ENV === 'production' ? '/api/' : '//localhost:3000/api/'
+  process.env.NODE_ENV === 'production' ? '/api/' : '//localhost:3333/api/'
 
 const axios = Axios.create({
   withCredentials: true,
@@ -24,6 +24,7 @@ export const httpService = {
 
 async function ajax(endpoint, method = 'GET', data = null) {
   try {
+    console.log('trying to contact server!')
     const res = await axios({
       url: `${BASE_URL}${endpoint}`,
       method,
