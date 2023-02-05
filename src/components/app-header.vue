@@ -1,7 +1,7 @@
 <template>
   <header class="app-header full main-container">
     <div class="header-container flex space-between align-center">
-      <h1>MyApp</h1>
+      <h1>Codex</h1>
       <div class="action-container">
         <button
           @click="isOpen = !isOpen"
