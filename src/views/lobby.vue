@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Lobby Page</h1>
+    <h1>Choose Code Block</h1>
   </section>
   <RouterView />
 </template>
