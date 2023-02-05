@@ -1,12 +1,9 @@
 import io from 'socket.io-client'
 
-export const SOCKET_EVENT_BLOCK_UPDATE = 'block-update'
-export const SOCKET_EMIT_BLOCK_UPDATE = 'block-update'
-// export const SOCKET_EMIT_USER_WATCH = 'user-watch'
-// export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
-
-const SOCKET_EMIT_LOGIN = 'set-user-socket'
-const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
+export const SOCKET_EMIT_SET_TOPIC = 'set-topic'
+export const SOCKET_EVENT_JOINED_TOPIC = 'joined-topic'
+export const SOCKET_EMIT_CODE_UPDATED = 'code-update'
+export const SOCKET_EVENT_CODE_UPDATED = 'code-updated'
 
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3333'
@@ -23,10 +20,6 @@ function createSocketService() {
   const socketService = {
     setup() {
       socket = io(baseUrl)
-      // setTimeout(()=>{
-      //   const user = userService.getLoggedinUser()
-      //   if (user) this.login(user._id)
-      // }, 500)
     },
     on(eventName, cb) {
       socket.on(eventName, cb)
@@ -40,12 +33,6 @@ function createSocketService() {
       console.log('emitting:', eventName, data)
       data = JSON.parse(JSON.stringify(data))
       socket.emit(eventName, data)
-    },
-    login(userId) {
-      socket.emit(SOCKET_EMIT_LOGIN, userId)
-    },
-    logout() {
-      socket.emit(SOCKET_EMIT_LOGOUT)
     },
     terminate() {
       socket = null

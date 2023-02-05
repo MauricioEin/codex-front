@@ -1,4 +1,5 @@
 import { httpService } from './http.service.js'
+import { socketService, SOCKET_EVENT_CODE_UPDATED } from './socket.service.js';
 
 export const codeService = {
     query,
@@ -26,9 +27,9 @@ async function getById(blockId) {
 
 async function updateBlock(block) {
     try {
-        const newBlock = await httpService.put(`code/${block._id}`, block)
-        return newBlock
+        const savedBlock = await httpService.put(`code/${block._id}`, block)
+        return savedBlock
     } catch (err) {
-        throw new Error('loadBlocks')
+        throw err
     }
 }
