@@ -1,8 +1,8 @@
 <template>
     <section class="block-list">
-        <article class="block-preview" v-for="(block, idx) in blocks" :key="idx">
+        <RouterLink class="block-preview" v-for="(block, idx) in blocks" :key="idx" :to="'/code/' + block._id">
             {{ block.title }}
-        </article>
+        </RouterLink>
     </section>
 </template>
 
