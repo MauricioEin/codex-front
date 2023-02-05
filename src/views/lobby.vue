@@ -4,7 +4,6 @@
     <block-list :blocks="blocks" />
 
   </section>
-  <RouterView />
 </template>
 
 <script>
