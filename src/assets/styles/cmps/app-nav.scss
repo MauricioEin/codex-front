@@ -1,0 +1,64 @@
+.app-nav {
+  position: relative;
+  min-width: 25%;
+  display: flex;
+  justify-content: space-between;
+
+
+  &>* {
+    margin-inline-start: 0.5em;
+    color: #fff;
+  }
+
+  transition: all 0.2s ease-in-out;
+
+  .close {
+    display: none;
+  }
+
+  @media (max-width: 500px) {
+    background-color: #fff;
+
+    &>* {
+      color: $clr2;
+    }
+
+    .close {
+      display: block;
+      position: absolute;
+      top: 1em;
+      left: 0;
+      color: $clr2;
+    }
+
+    top: 0;
+    transform: translateX(110%);
+    position: fixed;
+    right: 0;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: start;
+    padding: 1em;
+
+    &.open {
+      z-index: 10;
+      padding-top: 2.5em;
+      transform: translate(0);
+    }
+  }
+
+  .router-link-exact-active {
+    text-decoration: underline;
+  }
+}
+
+.back-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000040;
+  z-index: 9;
+
+}
