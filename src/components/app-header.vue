@@ -2,10 +2,10 @@
   <header class="app-header full main-container">
     <div class="header-container flex space-between align-center">
       <h1>Codex</h1>
-      <div class="action-container">
+      <div class="action-container flex align-center">
         <button
           @click="isOpen = !isOpen"
-          class="icon menu-btn"
+          class="icon menu-btn flex align-center"
           v-icon="'bars'"
         ></button>
       </div>

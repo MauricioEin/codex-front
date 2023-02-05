@@ -6,8 +6,10 @@
 
 
   &>* {
-    margin-inline-start: 0.5em;
-    color: #fff;
+    padding-inline: .5em;
+    color: $clr6;
+    height: 50px;
+    transition: .2s;
   }
 
   transition: all 0.2s ease-in-out;
@@ -16,11 +18,21 @@
     display: none;
   }
 
+  a:hover {
+    box-shadow: inset 0 -8px 0 0 #d4d4d44d;
+  }
+
+  .router-link-exact-active {
+    background-color: #ffffff2d;
+    box-shadow: inset 0 -8px 0 0 #d4d4d44d;
+  }
+
   @media (max-width: 500px) {
-    background-color: #fff;
+    background-color: $clr6;
 
     &>* {
       color: $clr2;
+
     }
 
     .close {
@@ -38,7 +50,8 @@
     height: 100vh;
     flex-direction: column;
     justify-content: start;
-    padding: 1em;
+    width:120px;
+    // padding: 1em;
 
     &.open {
       z-index: 10;
@@ -47,9 +60,7 @@
     }
   }
 
-  .router-link-exact-active {
-    text-decoration: underline;
-  }
+
 }
 
 .back-screen {

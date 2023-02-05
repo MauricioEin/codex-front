@@ -11,6 +11,10 @@
     border: 1px solid rgb(224, 224, 224);
     padding: 12px;
     text-decoration: none;
+    background-color: $clr5;
+    &:disabled{
+      color: $clr4;
+    }
 
     &:focus-visible {
         border: 1px solid rgb(179 245 255 / 37%);

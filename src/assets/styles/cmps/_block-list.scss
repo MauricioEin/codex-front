@@ -8,14 +8,16 @@
 
   .block-preview {
     cursor: pointer;
-    background-color: rgb(191 191 191 / 4%);
+    background-color: $clr6;
     box-shadow: 2px 2px 11px rgb(43 17 74 / 17%);
     border-radius: 3px;
     overflow-y: hidden;
     padding:10px;
+    transition:.3s;
     &:hover {
       text-decoration: none;
-      background-color: rgb(191 191 191 / 20%);
+      background-color: $clr4;
+      color:$clr7;
     }
   }
 }

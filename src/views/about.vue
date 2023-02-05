@@ -1,7 +1,7 @@
 <template>
   <div class="about">
-    <h1>Welcome to...</h1>
-    <h3>This is...</h3>
+    <h1>Welcome to Codex</h1>
+    <h3>This is a platform for remote tutoring in JS</h3>
 
     <h4>Project - stack:</h4>
     <ul>
@@ -18,7 +18,7 @@
         <ul>
           <li>node.js</li>
           <li>mongoDB</li>
-          <!-- <li>socket.io</li> -->
+          <li>socket.io</li>
         </ul>
       </li>
     </ul>
