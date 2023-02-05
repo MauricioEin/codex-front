@@ -10,15 +10,15 @@
         <ul>
           <li>Vue.js3</li>
           <li>Scss</li>
-          <!-- <li>VueX state Management</li> -->
+          <li>VueX state Management</li>
         </ul>
       </li>
       <li>
         Back End
         <ul>
-          <!-- <li>node.js</li>
+          <li>node.js</li>
           <li>mongoDB</li>
-          <li>socket.io</li> -->
+          <!-- <li>socket.io</li> -->
         </ul>
       </li>
     </ul>
