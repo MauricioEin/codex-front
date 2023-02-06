@@ -2,7 +2,8 @@
   <section class="code-block">
     <h2>{{ block?.title }}</h2>
     <p>{{ block?.description }}</p>
-    <textarea v-if="block" v-model="answer" :disabled="isTutor" @input="updateAnswer"></textarea>
+    <pre class="answer" v-if="block" :contenteditable="!isTutor" @input="updateAnswer">{{ answer }}</pre>
+    <highlightjs class="hljs" language='javascript' :code="answer" :contenteditable="!isTutor" @input="updateAnswer" />
 
     <nav>
       <router-link :to="'/code/' + prevId">Previous</router-link>
@@ -15,6 +16,9 @@
 <script>
 import { codeService } from '../services/code.service.js'
 import { socketService, SOCKET_EMIT_SET_TOPIC, SOCKET_EVENT_JOINED_TOPIC, SOCKET_EMIT_CODE_UPDATED, SOCKET_EVENT_CODE_UPDATED } from '../services/socket.service.js'
+import hljs from 'highlight.js/lib/core'
+import javascript from 'highlight.js/lib/languages/javascript'
+hljs.registerLanguage('javascript', javascript)
 
 export default {
   name: 'code-block',
@@ -55,9 +59,10 @@ export default {
       this.prevId = this.blocks[prevIdx]._id
       this.nextId = this.blocks[nextIdx]._id
     },
-    updateAnswer() {
+    updateAnswer({ target = null } = null) {
+      this.answer = target.innerText
       socketService.emit(SOCKET_EMIT_CODE_UPDATED, this.answer)
-    }
+    },
   },
   watch: {
     blockId() {
