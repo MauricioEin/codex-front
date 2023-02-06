@@ -2,6 +2,15 @@
   .header-container {
     position: relative;
 
+    h1 {
+      img {
+        height:25px;
+        position:relative;
+        right:22px;
+        top:2px;
+      }
+    }
+
     @media (min-width: 500px) {
       .menu-btn {
         display: none;
