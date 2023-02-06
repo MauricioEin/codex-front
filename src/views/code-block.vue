@@ -2,8 +2,9 @@
   <section class="code-block">
     <h2>{{ block?.title }}</h2>
     <p>{{ block?.description }}</p>
-    <pre class="answer" v-if="block" :contenteditable="!isTutor" @input="updateAnswer">{{ answer }}</pre>
-    <highlightjs class="hljs" language='javascript' :code="answer" :contenteditable="!isTutor" @input="updateAnswer" />
+    <pre class="answer" v-if="block" :contenteditable="!isTutor"
+      @input="updateAnswer">{{ block.code }}</pre>
+    <highlightjs class="hljs" language='javascript' :code="answer" />
 
     <nav>
       <router-link :to="'/code/' + prevId">Previous</router-link>
@@ -59,8 +60,8 @@ export default {
       this.prevId = this.blocks[prevIdx]._id
       this.nextId = this.blocks[nextIdx]._id
     },
-    updateAnswer({ target = null } = null) {
-      this.answer = target.innerText
+    updateAnswer(ev) {
+      this.answer = ev.target.innerText
       socketService.emit(SOCKET_EMIT_CODE_UPDATED, this.answer)
     },
   },
