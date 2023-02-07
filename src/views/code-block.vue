@@ -6,11 +6,10 @@
     <div class="exercise flex column space-between" v-if="block">
       <div class="code-section">
         <pre class="answer" :contenteditable="!isTutor" @input="updateAnswer">{{ block.code }}</pre>
-        <highlightjs class="hljs" language='javascript' :code="answer" />
+        <highlightjs class="hl-ans" language='javascript' :code="answer" />
         <highlightjs v-if="isSolutionShown" language='javascript' :code="'Solution:\n' + block.solution" />
-        <button v-if="isTutor" @click="isSolutionShown = !isSolutionShown">
-          {{ isSolutionShown? 'Hide solution': 'Show solution' }}
-        </button>
+        <highlightjs class="solution-btn" v-if="isTutor" @click="isSolutionShown = !isSolutionShown"
+          language='javascript' :code="isSolutionShown ? 'Hide solution' : 'Show solution'" />
       </div>
 
 

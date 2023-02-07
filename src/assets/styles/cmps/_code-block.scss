@@ -12,7 +12,7 @@
   .exercise {
     flex-grow: 1;
 
-    .code-section{
+    .code-section {
       overflow-y: auto;
     }
 
@@ -25,10 +25,23 @@
       caret-color: white;
     }
 
-    .hljs {
+    .hl-ans {
       pointer-events: none;
       margin-bottom: 20px;
     }
+
+    .solution-btn code.hljs {
+      padding-block: 0 !important;
+      color: rgb(147, 208, 191);
+      cursor: pointer;
+
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-break: keep-all
+    }
+
 
     nav {
       display: flex;
@@ -77,7 +90,7 @@
 
     &.empty {
       transform: translateX(50%) translateY(-110%);
-      opacity:0;
+      opacity: 0;
     }
   }
 }
