@@ -5,11 +5,11 @@
     <pre class="answer" v-if="block" :contenteditable="!isTutor" @input="updateAnswer">{{ block.code }}</pre>
     <highlightjs class="hljs" language='javascript' :code="answer" />
 
-    <div v-if="isCorrect" class="img-container flex justify-center align-center" :class="{ small: isSmall }"
+    <div v-if="isCorrect" class="img-container flex" :class="{ small: isSmall }"
       @click="isSmall = !isSmall">
       <img src="../assets/images/success.webp">
     </div>
-    
+
     <nav>
       <router-link :to="'/code/' + prevId">Previous</router-link>
       <router-link :to="'/code/' + nextId">Next</router-link>

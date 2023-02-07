@@ -15,18 +15,23 @@
   }
 
   .img-container {
-    position: fixed;
+    position: absolute;
     inset: 0;
     z-index: 20;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
 
     img {
       width: 80%;
+      filter: sepia(0.2) brightness(1.7);
     }
 
     &.small {
-      height: 30vh;
-      width: 30vw;
-      inset: auto 0 50px auto;
+      max-width: 160px;
+      inset: 0 0 auto auto;
+      align-items: flex-end;
+      justify-content: flex-end;
     }
   }
 
