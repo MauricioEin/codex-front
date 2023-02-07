@@ -1,6 +1,10 @@
 <template>
-  <section class="app-home flex justify-center align-center">
-    <h1>Home Page</h1>
+  <section class="app-home flex column justify-center align-center">
+    <img src="../assets/images/x.png">
+    <h2>Welcome Home.</h2>
+    <h4>Codex is you best platform for remote-tutoring when it has to do with JS.</h4>
+
+    <RouterLink to="/code"><button>Check it out</button></RouterLink>
   </section>
 </template>
 

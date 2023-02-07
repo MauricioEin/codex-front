@@ -63,6 +63,7 @@
     img {
       width: 80%;
       filter: sepia(0.2) brightness(1.7);
+      transform: rotate(10deg);
     }
 
     &.small {
