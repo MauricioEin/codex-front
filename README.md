@@ -1,29 +1,11 @@
-# home-task
 
-This template should help get you started developing with Vue 3 in Vite.
+<h1 align="center">CodeX <img src="https://images.vexels.com/media/users/3/155474/isolated/preview/4e12cd94f7591c3c851fce62fdc3d463-x-cross-doodle-icon.png" width="30px"> a platform for remote JS tutoring</h1>
 
-## Recommended IDE Setup
+<p align="center">Deployed to Render: https://codex-2610.onrender.com/</p>
+<!-- <p align="center"><img width="80%" src=""></p> -->
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+<br>
+<p>Codex lets you see your students' code dynamically as they type it, and indicates them when they get the most accurate answer.</p>
+<p>Built using Vue3 and Vuex on frontend, Scss and highlight.js, and nodejs, express, mongodb and socket-io on backend.</p>
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+<a href="https://github.com/MauricioEin/codex-back">Link to backend repository</a>

@@ -1,7 +1,7 @@
 <template>
   <section class="code-block flex column">
-    <h2>{{ block.title }}</h2>
-    <p>{{ block.description }}</p>
+    <h2>{{ block?.title }}</h2>
+    <p>{{ block?.description }}</p>
 
     <div class="exercise flex column space-between" v-if="block">
       <div class="code-section">
