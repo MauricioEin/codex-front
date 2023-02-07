@@ -1,11 +1,13 @@
 // Colors
 $clr1: #23b943;
-$clr2: #539b9d; 
+$clr2: #539b9d;
 $clr3: #27a363;
 $clr4: #517084;
 $clr5: #cedbd6;
 $clr6: #1e3434;
 $clr7: #1a1a1a;
+$clr8: #38c37b;
+$greenGradient: linear-gradient($clr8, $clr3);
 
 // Breakpoints
 $mobile-breakpoint: 460px;

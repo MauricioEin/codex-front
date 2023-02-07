@@ -1,7 +1,7 @@
 <template>
   <header class="app-header full main-container">
     <div class="header-container flex space-between align-center">
-      <h1>CodeX<img src="../assets/images/x2.png"></h1>
+      <router-link to="/"><h1>Code<img src="../assets/images/x.png"></h1></router-link>
       <div class="action-container flex align-center">
         <button
           @click="isOpen = !isOpen"

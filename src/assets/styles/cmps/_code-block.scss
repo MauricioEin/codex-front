@@ -2,7 +2,6 @@
   position: relative;
   height: 100%;
   padding-top: 20px;
-  // overflow-y: auto;
 
   h2,
   p {
@@ -30,11 +29,13 @@
       margin-bottom: 20px;
     }
 
+    .solution code.hljs{
+      padding-block: 4px;
+    }
     .solution-btn code.hljs {
-      padding-block: 0 !important;
+      padding-block: 0;
       color: rgb(147, 208, 191);
       cursor: pointer;
-
     }
 
     pre {

@@ -7,7 +7,7 @@
       <div class="code-section">
         <pre class="answer" :contenteditable="!isTutor" @input="updateAnswer">{{ block.code }}</pre>
         <highlightjs class="hl-ans" language='javascript' :code="answer" />
-        <highlightjs v-if="isSolutionShown" language='javascript' :code="'Solution:\n' + block.solution" />
+        <highlightjs class="solution" v-if="isSolutionShown" language='javascript' :code="'Solution:\n' + block.solution" />
         <highlightjs class="solution-btn" v-if="isTutor" @click="isSolutionShown = !isSolutionShown"
           language='javascript' :code="isSolutionShown ? 'Hide solution' : 'Show solution'" />
       </div>
