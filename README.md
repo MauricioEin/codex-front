@@ -1,8 +1,8 @@
 
-<h1 align="center">CodeX <img src="https://images.vexels.com/media/users/3/155474/isolated/preview/4e12cd94f7591c3c851fce62fdc3d463-x-cross-doodle-icon.png" width="30px"> a platform for remote JS tutoring</h1>
+<h1 align="center">CodeX: a platform for remote JS tutoring</h1>
 
 <p align="center">Deployed to Render: https://codex-2610.onrender.com/</p>
-<!-- <p align="center"><img width="80%" src=""></p> -->
+<p align="center"><img width="80%" src="http://res.cloudinary.com/casep22/image/upload/v1675808797/codex_std0xd.jpg"></p>
 
 <br>
 <p>Codex lets you see your students' code dynamically as they type it, and indicates them when they get the most accurate answer.</p>
