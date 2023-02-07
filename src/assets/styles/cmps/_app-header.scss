@@ -11,7 +11,7 @@
       }
     }
 
-    @media (min-width: 500px) {
+    @include for-narrow-layout {
       .menu-btn {
         display: none;
       }
