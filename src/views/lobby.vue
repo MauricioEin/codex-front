@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="flex column justify-center align-center">
     <h1>Choose Code Block</h1>
     <block-list :blocks="blocks" />
 
