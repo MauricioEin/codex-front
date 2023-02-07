@@ -59,6 +59,12 @@ a:hover {
   outline: 1px solid $clr2;
 }
 
+@include for-mobile-layout{
+  ::-webkit-scrollbar {
+    display:none;
+  }
+}
+
 button {
   cursor: pointer;
 
