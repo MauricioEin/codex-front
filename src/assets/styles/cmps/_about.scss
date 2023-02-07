@@ -3,36 +3,46 @@
   padding-inline: 20px;
   text-align: center;
 
-  h2 {
-    margin-bottom: 20px;
-  }
-
   h3 {
-    // margin-bottom: 40px;
+    margin-bottom: 20px;
+    line-height: 1.5em;
   }
 
-  .list-container {
+
+  .stack-details {
     flex-direction: column;
     padding-top: 20px;
+    align-items: center;
+    gap: 30px;
 
     @include for-narrow-layout {
       flex-direction: row;
       width: 100%;
+      align-items: stretch;
+      justify-content: center;
 
-      >* {
+      a {
         flex-basis: 50%;
+        max-width: 300px;
       }
 
 
     }
 
-    ul {
-      padding-top: 20px;
-    }
+    a {
+      width: 230px;
+      padding-block: 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      border: 3px solid $clr3;
+      transition: .5s;
 
-    li {
-      list-style: none;
-      text-align: center;
+      &:hover {
+        box-shadow: inset  0 0 9px rgba(255, 255, 255, 0.5);
+        color:$clr5;
+        background: linear-gradient( rgba(113, 231, 255, 0.303) 0%, rgba(240, 219, 255, 0.136) 100%);
+      }
+
 
       h4 {
         margin-bottom: 15px;
