@@ -1,12 +1,12 @@
 <template>
-  <section class="code-block">
-    <h2>{{ block?.title }}</h2>
-    <p>{{ block?.description }}</p>
-    <pre class="answer" v-if="block" :contenteditable="!isTutor" @input="updateAnswer">{{ block.code }}</pre>
-    <highlightjs class="hljs" language='javascript' :code="answer" />
-
-    <div v-if="isCorrect" class="img-container flex" :class="{ small: isSmall }"
-      @click="isSmall = !isSmall">
+  <section class="code-block flex column space-between">
+    <div class="exercise" v-if="block">
+      <h2>{{ block.title }}</h2>
+      <p>{{ block.description }}</p>
+      <pre class="answer" :contenteditable="!isTutor" @input="updateAnswer">{{ block.code }}</pre>
+      <highlightjs class="hljs" language='javascript' :code="answer" />
+    </div>
+    <div v-if="isCorrect" class="img-container flex" :class="{ small: isSmall }" @click="isSmall = !isSmall">
       <img src="../assets/images/success.webp">
     </div>
 
@@ -58,6 +58,7 @@ export default {
     async loadBlock() {
       this.block = await codeService.getById(this.blockId)
       this.answer = this.block.code
+      this.isCorrect = this.isSmall = false
       socketService.emit(SOCKET_EMIT_SET_TOPIC, this.$route.params.id)
       this.getPrevNextId()
     },
