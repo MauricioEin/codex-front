@@ -1,14 +1,45 @@
-.about{
-  height:100%;
+.about {
+  height: 100%;
   padding-inline: 20px;
-  h4{
-    padding-block:20px;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 20px;
   }
-  li{
-    list-style: none;
-    text-align: center;
-    ul{
-      padding: 10px 0 20px;;
+
+  h3 {
+    // margin-bottom: 40px;
+  }
+
+  .list-container {
+    flex-direction: column;
+    padding-top: 20px;
+
+    @include for-narrow-layout {
+      flex-direction: row;
+      width: 100%;
+
+      >* {
+        flex-basis: 50%;
+      }
+
+
+    }
+
+    ul {
+      padding-top: 20px;
+    }
+
+    li {
+      list-style: none;
+      text-align: center;
+
+      h4 {
+        margin-bottom: 15px;
+        font-weight: bold;
+        text-decoration: underline;
+      }
     }
   }
+
 }
