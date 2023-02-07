@@ -1,11 +1,12 @@
 .code-block {
   position: relative;
-  height:100%;
+  height: 100%;
 
-  h2{
+  h2 {
     margin-bottom: 10px;
   }
-  p{
+
+  p {
     margin-bottom: 10px;
   }
 
@@ -20,6 +21,10 @@
 
   .hljs {
     pointer-events: none;
+    margin-bottom: 20px;
+  }
+
+  .solution {
   }
 
   .img-container {

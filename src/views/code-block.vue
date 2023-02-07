@@ -5,8 +5,14 @@
       <p>{{ block.description }}</p>
       <pre class="answer" :contenteditable="!isTutor" @input="updateAnswer">{{ block.code }}</pre>
       <highlightjs class="hljs" language='javascript' :code="answer" />
+      <highlightjs v-if="isSolutionShown" class="solution" language='javascript' :code="block.solution" />
+      <button v-if="isTutor" @click="isSolutionShown = !isSolutionShown">
+        {{ isSolutionShown? 'Hide solution': 'Show solution' }}
+      </button>
+
     </div>
-    <div v-if="isCorrect" class="img-container flex" :class="{ small: isSmall }" @click="isSmall = !isSmall">
+    <div v-if="isCorrect" class="img-container flex" :class="{ small: isSuccessSmall }"
+      @click="isSuccessSmall = !isSuccessSmall">
       <img src="../assets/images/success.webp">
     </div>
 
@@ -35,7 +41,8 @@ export default {
       answer: '',
       isTutor: false,
       isCorrect: false,
-      isSmall: true
+      isSuccessSmall: false,
+      isSolutionShown: false
     }
   },
   computed: {
@@ -58,7 +65,7 @@ export default {
     async loadBlock() {
       this.block = await codeService.getById(this.blockId)
       this.answer = this.block.code
-      this.isCorrect = this.isSmall = false
+      this.isCorrect = this.isSuccessSmall = false
       socketService.emit(SOCKET_EMIT_SET_TOPIC, this.$route.params.id)
       this.getPrevNextId()
     },
