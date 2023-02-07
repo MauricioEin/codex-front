@@ -1,25 +1,30 @@
 <template>
-  <section class="code-block flex column space-between">
-    <div class="exercise" v-if="block">
-      <h2>{{ block.title }}</h2>
-      <p>{{ block.description }}</p>
-      <pre class="answer" :contenteditable="!isTutor" @input="updateAnswer">{{ block.code }}</pre>
-      <highlightjs class="hljs" language='javascript' :code="answer" />
-      <highlightjs v-if="isSolutionShown" language='javascript' :code="'Solution:\n' + block.solution" />
-      <button v-if="isTutor" @click="isSolutionShown = !isSolutionShown">
-        {{ isSolutionShown? 'Hide solution': 'Show solution' }}
-      </button>
+  <section class="code-block flex column">
+    <h2>{{ block.title }}</h2>
+    <p>{{ block.description }}</p>
 
+    <div class="exercise flex column space-between" v-if="block">
+      <div class="code-section">
+        <pre class="answer" :contenteditable="!isTutor" @input="updateAnswer">{{ block.code }}</pre>
+        <highlightjs class="hljs" language='javascript' :code="answer" />
+        <highlightjs v-if="isSolutionShown" language='javascript' :code="'Solution:\n' + block.solution" />
+        <button v-if="isTutor" @click="isSolutionShown = !isSolutionShown">
+          {{ isSolutionShown? 'Hide solution': 'Show solution' }}
+        </button>
+      </div>
+
+
+      <nav>
+        <router-link :to="'/code/' + prevId">Previous</router-link>
+        <router-link :to="'/code/' + nextId">Next</router-link>
+      </nav>
     </div>
+
+
     <div v-if="isCorrect" class="img-container flex" :class="{ small: isSuccessSmall }"
       @click="isSuccessSmall = !isSuccessSmall">
       <img src="../assets/images/success.webp">
     </div>
-
-    <nav>
-      <router-link :to="'/code/' + prevId">Previous</router-link>
-      <router-link :to="'/code/' + nextId">Next</router-link>
-    </nav>
 
     <div class="user-msg" :class="{ empty: !isMsg }">{{ msg }}</div>
   </section>

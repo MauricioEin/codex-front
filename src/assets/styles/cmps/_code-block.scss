@@ -2,25 +2,39 @@
   position: relative;
   height: 100%;
   padding-top: 20px;
-  overflow-y: hidden;
+  // overflow-y: auto;
 
   h2,
   p {
     margin-bottom: 10px;
   }
 
-  .answer {
-    width: 100%;
-    position: absolute;
-    z-index: 10;
-    padding: 1em;
-    color: transparent;
-    caret-color: white;
-  }
+  .exercise {
+    flex-grow: 1;
 
-  .hljs {
-    pointer-events: none;
-    margin-bottom: 20px;
+    .code-section{
+      overflow-y: auto;
+    }
+
+    .answer {
+      width: 100%;
+      position: absolute;
+      z-index: 10;
+      padding: 1em;
+      color: transparent;
+      caret-color: white;
+    }
+
+    .hljs {
+      pointer-events: none;
+      margin-bottom: 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
 
@@ -45,14 +59,6 @@
     }
   }
 
-
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
   .user-msg {
     background-color: $clr5;
     color: $clr6;
@@ -66,11 +72,12 @@
     top: 0;
     right: 50%;
     transform: translateX(50%);
-    transition: transform .3s;
+    transition: transform .5s, opacity .3s;
     white-space: pre-line;
-    
+
     &.empty {
-      transform: translateX(50%) translateY(-100%);
+      transform: translateX(50%) translateY(-110%);
+      opacity:0;
     }
   }
 }
