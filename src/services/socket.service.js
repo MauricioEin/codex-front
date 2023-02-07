@@ -2,6 +2,7 @@ import io from 'socket.io-client'
 
 export const SOCKET_EMIT_SET_TOPIC = 'set-topic'
 export const SOCKET_EVENT_JOINED_TOPIC = 'joined-topic'
+export const SOCKET_EVENT_FELLOW_JOINED = 'fellow-joined'
 export const SOCKET_EMIT_CODE_UPDATED = 'code-update'
 export const SOCKET_EVENT_CODE_UPDATED = 'code-updated'
 

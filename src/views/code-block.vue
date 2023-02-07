@@ -27,7 +27,7 @@
 
 <script>
 import { codeService } from '../services/code.service.js'
-import { socketService, SOCKET_EMIT_SET_TOPIC, SOCKET_EVENT_JOINED_TOPIC, SOCKET_EMIT_CODE_UPDATED, SOCKET_EVENT_CODE_UPDATED } from '../services/socket.service.js'
+import { socketService, SOCKET_EMIT_SET_TOPIC, SOCKET_EVENT_JOINED_TOPIC, SOCKET_EVENT_FELLOW_JOINED, SOCKET_EMIT_CODE_UPDATED, SOCKET_EVENT_CODE_UPDATED } from '../services/socket.service.js'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 hljs.registerLanguage('javascript', javascript)
@@ -62,6 +62,9 @@ export default {
       this.isTutor = isTutor
       this.showMsg()
     })
+    socketService.on(SOCKET_EVENT_FELLOW_JOINED, () => {
+      this.showMsg(true)
+    })
     socketService.on(SOCKET_EVENT_CODE_UPDATED, answer => {
       this.answer = answer
       this.checkAnswer()
@@ -94,8 +97,9 @@ export default {
       this.isCorrect =
         this.answer.replaceAll(regex, '') === this.block.solution.replaceAll(regex, '')
     },
-    showMsg() {
-      this.msg = this.isTutor ?
+    showMsg(isFellow = false) {
+      if (isFellow) this.msg = 'A student entered.'
+      else this.msg = this.isTutor ?
         'Welcome, tutor.\nWaiting for your student to join...'
         : 'Welcome!\nFeel free to start.'
       this.isMsg = true
