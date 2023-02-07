@@ -1,11 +1,10 @@
 .code-block {
   position: relative;
   height: 100%;
+  padding-top: 20px;
+  overflow-y: hidden;
 
-  h2 {
-    margin-bottom: 10px;
-  }
-
+  h2,
   p {
     margin-bottom: 10px;
   }
@@ -24,8 +23,6 @@
     margin-bottom: 20px;
   }
 
-  .solution {
-  }
 
   .img-container {
     position: absolute;
@@ -54,5 +51,26 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+  }
+
+  .user-msg {
+    background-color: $clr5;
+    color: $clr6;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px $clr7;
+    width: 200px;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+    transition: transform .3s;
+    white-space: pre-line;
+    
+    &.empty {
+      transform: translateX(50%) translateY(-100%);
+    }
   }
 }

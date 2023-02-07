@@ -5,7 +5,7 @@
       <p>{{ block.description }}</p>
       <pre class="answer" :contenteditable="!isTutor" @input="updateAnswer">{{ block.code }}</pre>
       <highlightjs class="hljs" language='javascript' :code="answer" />
-      <highlightjs v-if="isSolutionShown" class="solution" language='javascript' :code="block.solution" />
+      <highlightjs v-if="isSolutionShown" language='javascript' :code="'Solution:\n' + block.solution" />
       <button v-if="isTutor" @click="isSolutionShown = !isSolutionShown">
         {{ isSolutionShown? 'Hide solution': 'Show solution' }}
       </button>
@@ -21,6 +21,7 @@
       <router-link :to="'/code/' + nextId">Next</router-link>
     </nav>
 
+    <div class="user-msg" :class="{ empty: !isMsg }">{{ msg }}</div>
   </section>
 </template>
 
@@ -39,10 +40,12 @@ export default {
       prevId: null,
       nextId: null,
       answer: '',
-      isTutor: false,
+      isTutor: null,
       isCorrect: false,
       isSuccessSmall: false,
-      isSolutionShown: false
+      isSolutionShown: false,
+      msg: '',
+      isMsg: false
     }
   },
   computed: {
@@ -55,7 +58,10 @@ export default {
   },
   created() {
     this.loadBlock()
-    socketService.on(SOCKET_EVENT_JOINED_TOPIC, (isTutor) => this.isTutor = isTutor)
+    socketService.on(SOCKET_EVENT_JOINED_TOPIC, (isTutor) => {
+      this.isTutor = isTutor
+      this.showMsg()
+    })
     socketService.on(SOCKET_EVENT_CODE_UPDATED, answer => {
       this.answer = answer
       this.checkAnswer()
@@ -65,7 +71,7 @@ export default {
     async loadBlock() {
       this.block = await codeService.getById(this.blockId)
       this.answer = this.block.code
-      this.isCorrect = this.isSuccessSmall = false
+      this.isCorrect = this.isSuccessSmall = this.isSolutionShown = false
       socketService.emit(SOCKET_EMIT_SET_TOPIC, this.$route.params.id)
       this.getPrevNextId()
     },
@@ -87,12 +93,24 @@ export default {
       const regex = /\n|\t| /g
       this.isCorrect =
         this.answer.replaceAll(regex, '') === this.block.solution.replaceAll(regex, '')
+    },
+    showMsg() {
+      this.msg = this.isTutor ?
+        'Welcome, tutor.\nWaiting for your student to join...'
+        : 'Welcome!\nFeel free to start.'
+      this.isMsg = true
+      const blockId = this.blockId
+      setTimeout(() => {
+        if (this.blockId === blockId)
+          this.isMsg = false
+      }, 2000)
+
     }
   },
   watch: {
     blockId() {
       this.loadBlock()
-    }
+    },
   }
 }
 </script>
