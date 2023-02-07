@@ -1,6 +1,6 @@
 <template>
   <section class="flex column justify-center align-center">
-    <h1>Choose Code Block</h1>
+    <h2>Choose Code Block</h2>
     <block-list :blocks="blocks" />
 
   </section>

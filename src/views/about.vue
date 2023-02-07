@@ -3,7 +3,7 @@
     <h3>CodeX is a platform for remote tutoring in JS,<br>made by Mauricio Einhorn as a home interview task,<br>implementing:
     </h3>
     <div class="stack-details flex">
-      <a v-for="(repo, idx) in repos" :key="idx" :href="repo.link" target="_blank" class="repo-link">
+      <a v-for="(repo, idx) in repos" :key="idx" :href="repo.link" target="_blank" class="repo-link" :title="repo.title+' Repository'">
         <h4 class="list-header">{{ repo.title }}</h4>
         <p v-for="(element, idx) in repo.elements" :key="idx">{{ element }}</p>
       </a>
