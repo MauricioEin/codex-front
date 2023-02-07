@@ -2,10 +2,14 @@
   <section class="code-block">
     <h2>{{ block?.title }}</h2>
     <p>{{ block?.description }}</p>
-    <pre class="answer" v-if="block" :contenteditable="!isTutor"
-      @input="updateAnswer">{{ block.code }}</pre>
+    <pre class="answer" v-if="block" :contenteditable="!isTutor" @input="updateAnswer">{{ block.code }}</pre>
     <highlightjs class="hljs" language='javascript' :code="answer" />
 
+    <div v-if="isCorrect" class="img-container flex justify-center align-center" :class="{ small: isSmall }"
+      @click="isSmall = !isSmall">
+      <img src="../assets/images/success.webp">
+    </div>
+    
     <nav>
       <router-link :to="'/code/' + prevId">Previous</router-link>
       <router-link :to="'/code/' + nextId">Next</router-link>
@@ -29,7 +33,9 @@ export default {
       prevId: null,
       nextId: null,
       answer: '',
-      isTutor: false
+      isTutor: false,
+      isCorrect: false,
+      isSmall: true
     }
   },
   computed: {
@@ -42,8 +48,11 @@ export default {
   },
   created() {
     this.loadBlock()
-    socketService.on(SOCKET_EVENT_CODE_UPDATED, answer => this.answer = answer)
     socketService.on(SOCKET_EVENT_JOINED_TOPIC, (isTutor) => this.isTutor = isTutor)
+    socketService.on(SOCKET_EVENT_CODE_UPDATED, answer => {
+      this.answer = answer
+      this.checkAnswer()
+    })
   },
   methods: {
     async loadBlock() {
@@ -63,7 +72,14 @@ export default {
     updateAnswer(ev) {
       this.answer = ev.target.innerText
       socketService.emit(SOCKET_EMIT_CODE_UPDATED, this.answer)
+      this.checkAnswer()
     },
+    checkAnswer() {
+      console.log('checking')
+      const regex = /\n|\t| /g
+      this.isCorrect =
+        this.answer.replaceAll(regex, '') === this.block.solution.replaceAll(regex, '')
+    }
   },
   watch: {
     blockId() {

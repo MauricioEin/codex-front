@@ -14,6 +14,23 @@
     pointer-events: none;
   }
 
+  .img-container {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+
+    img {
+      width: 80%;
+    }
+
+    &.small {
+      height: 30vh;
+      width: 30vw;
+      inset: auto 0 50px auto;
+    }
+  }
+
+
   nav {
     display: flex;
     justify-content: space-between;
