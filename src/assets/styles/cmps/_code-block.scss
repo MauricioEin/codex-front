@@ -29,9 +29,10 @@
       margin-bottom: 20px;
     }
 
-    .solution code.hljs{
+    .solution code.hljs {
       padding-block: 4px;
     }
+
     .solution-btn code.hljs {
       padding-block: 0;
       color: rgb(147, 208, 191);
@@ -51,6 +52,17 @@
     }
   }
 
+  .loader {
+    width: 50vh;
+    max-width: 200px;
+    height: 100%;
+    margin-inline: auto;
+
+    img {
+      width: 100%;
+      filter: brightness(2.3) hue-rotate(20deg);
+    }
+  }
 
   .img-container {
     position: absolute;

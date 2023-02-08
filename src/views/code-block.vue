@@ -7,7 +7,8 @@
       <div class="code-section">
         <pre class="answer" :contenteditable="!isTutor" @input="updateAnswer">{{ block.code }}</pre>
         <highlightjs class="hl-ans" language='javascript' :code="answer" />
-        <highlightjs class="solution" v-if="isSolutionShown" language='javascript' :code="'Solution:\n' + block.solution" />
+        <highlightjs class="solution" v-if="isSolutionShown" language='javascript'
+          :code="'Solution:\n' + block.solution" />
         <highlightjs class="solution-btn" v-if="isTutor" @click="isSolutionShown = !isSolutionShown"
           language='javascript' :code="isSolutionShown ? 'Hide solution' : 'Show solution'" />
       </div>
@@ -19,6 +20,10 @@
       </nav>
     </div>
 
+
+    <div v-else class="loader flex justify-center align-center">
+      <img src="../assets/images/loader.gif">
+    </div>
 
     <div v-if="isCorrect" class="img-container flex" :class="{ small: isSuccessSmall }"
       @click="isSuccessSmall = !isSuccessSmall">
@@ -117,6 +122,8 @@ export default {
   },
   watch: {
     blockId() {
+      this.block = null
+      this.isMsg = false
       this.loadBlock()
     },
   }
